@@ -1,0 +1,146 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Project-MIS</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/lib/fontawesome-free-5.10.2-web/css/all.min.css" />
+</head>
+<body style="background-color: gainsboro">
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark border-bottom box-shadow">
+            <div class="container-fluid"> 
+                <a class="navbar-brand " asp-area="ProjectTeam" asp-controller="Home" asp-action="Index">
+                    <img src="~/images/BlackHat.png" />
+                    <img src="~/images/RedHat.png" />
+                    <img src="~/images/OrangHat.png" />
+
+                    Project-MIS
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nav1" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse" id="nav1">
+                    <partial name="_LoginPartial" />
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link " asp-area="ProjectTeam" asp-controller="Home" asp-action="Index">
+                                <span class="fa fa-home"></span>
+                                Home
+                            </a>
+                        </li>
+
+
+
+
+
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="">
+        <main role="main" class="pb-3">
+
+            <div class="row">
+
+            <div class="col-sm-2 col-md-2 col-sm-12">
+                <nav class=" border-right bg-dark display-5 text-white navbar-expand-sm navbar-toggleable-sm p-4" id="myScrollspy">
+
+                    @* <!-- Toggler/collapsibe Button --> *@
+                    <button class="navbar-toggler text-white" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                        <span class="navbar-toggler-icon text-white text-center mx-auto">
+                            <span class="fa fa-list-alt fa-2x "> </span>
+                             
+                        </span>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                        <ul class="nav nav-pills flex-column ">
+
+                            <li class="nav-item mt-3">
+                                <a class="nav-link text-white-50" asp-area="ProjectTeam" asp-controller="Home" asp-action="Index">
+                                    <span class="fa fa-tachometer-alt"></span> &nbsp;Dashboard
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link text-white-50" asp-area="Admin" asp-controller="Home" asp-action="Index">
+                                    <span class="fa fa-plus-circle"></span> &nbsp; Registration
+                                </a> 
+                            </li>
+
+
+                            <li class="nav-item">
+                                <a class="nav-link text-white-50" asp-area="ProjectTeam" asp-controller="Students" asp-action="Index">
+                                    <span class="fa fa-users-cog"></span> &nbsp;Students
+                                </a>
+                            </li>
+
+                            <li class="nav-item" >
+                                <a class="nav-link text-white-50" asp-area="ProjectTeam" asp-controller="Home" asp-action="Index" >
+                                    <span class="fa fa-user-friends"></span> &nbsp; Lecturers
+                                   
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link text-white-50" asp-area="ProjectTeam" asp-controller="Home" asp-action="Index">
+                                    <span class="fa  fa-project-diagram "></span> &nbsp;Projects
+                                </a>
+                            </li>
+                            
+                            <li class="nav-item">
+                                <a class="nav-link text-white-50" asp-area="ProjectTeam" asp-controller="Home" asp-action="Index">
+                                    <span class="fa fa-people-carry "></span>&nbsp; Committees 
+                                </a>
+                            </li>
+
+
+                            <!-- Dropdown -->
+                            <li class="nav-item dropdown ">
+                                <a class="nav-link text-white-50 dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                                    <span class="fa fa-users"></span>&nbsp; Users
+                                </a>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" asp-area="ProjectTeam" asp-controller="Home" asp-action="Index">Add User</a>
+                                    <a class="dropdown-item" asp-area="ProjectTeam" asp-controller="Home" asp-action="Index">Manage User</a>
+                                </div>
+                            </li>
+
+                            <li class="nav-item pb-1" style="margin-top: 100px">
+                                <a class="nav-link text-white-50" asp-area="ProjectTeam" asp-controller="Home" asp-action="Index">
+                                    <span class="fa fa-sign-out-alt"></span> Log Out
+                                </a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </nav>
+
+            </div>
+            <div class="col-lg-10 col-md-10 col-sm-12 ">
+                @RenderBody()
+            </div>
+            </div>
+
+
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2021 - Project-MIS - <a asp-area="ProjectTeam" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/lib/fontawesome-free-5.10.2-web/js/all.min.js"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,34 @@
+﻿@model Project_MIS.Models.University
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<br />
+<br />
+
+<div class="card">
+    <div class="card-body bg-white">
+
+        <div class="col text-info">
+            <h1>Details Of @Model.Name University</h1>
+        </div>
+        <br />
+        @* past the form *@
+    
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            <label asp-for="Name" class="control-label"></label>
+            <input readonly="readonly" asp-for="Name" class="form-control" />
+            
+        </div>
+
+        <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-success"><span class="fa fa-edit"></span>Edit</a> |
+        <a asp-action="Index" class="btn btn-info"><span class="fa fa-arrow-alt-circle-left">
+             &nbsp;
+        </span> Back to List</a>
+</div>
+    
+</div>
+
+

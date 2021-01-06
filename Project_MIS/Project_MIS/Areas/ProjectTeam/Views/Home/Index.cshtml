@@ -1,0 +1,62 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+ 
+<div class="">
+    <div class="container">
+
+        <div class="border border-danger p-3 my-3">
+            <div class="card bg-secondary p-3  ">
+
+                <h3 class="text-white text-center">
+                    Welcome to <strong>Project-Defence</strong> Management System
+                </h3>
+            </div>
+        </div> 
+
+        <div class="card-columns align-items-baseline">
+            <!-- First Column -->
+            <div class="card bg-primary">
+                <div class="card-body">
+                    <div class="card-text text-center">
+                        <a asp-area="ProjectTeam" asp-controller="Home" asp-action="Index" class="display-4 rounded text-dark">
+                            <span class="fa fa-project-diagram"></span>
+                            <br>All <br/> Projects
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- second column -->
+            <div class="card bg-secondary">
+                <div class="card-body">
+                    <div class="card-text text-center">
+                        <a asp-area="ProjectTeam" asp-controller="Home" asp-action="Index" class=" display-4 rounded text-dark">
+                            <span class="fa fa-check-circle"></span>
+                            <br>Ready<br/>Projects
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Third Columns -->
+            <div class="card bg-danger">
+                <div class="card-body">
+                    <div class="card-text text-center">
+                        <a asp-area="ProjectTeam" asp-controller="Home" asp-action="Index" class=" display-4 rounded text-dark">
+                            <span class="fa fa-pen-square"></span>
+                            <br>Pending<br/>Projects
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+
+
+
+
+    </div>
+</div>

@@ -1,0 +1,107 @@
+﻿@model Project_MIS.Models.Department
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<br />
+<br />
+
+<div class="card">
+    <div class="card-body bg-white">
+
+        <div class="col text-info">
+            <h1>Add New Department</h1><hr />
+        </div>
+        <br />
+        @* past the form *@
+        <form asp-action="Create">
+            <div asp-validation-summary="All" class="text-danger"></div>
+
+
+            <div class="form-group">
+                <label class="control-label">Select University</label>
+                <select id="university" asp-items="ViewBag.University" class="form-control custom-select"></select>
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+
+
+            <div  class="form-group hiddenPart" style="display: none">
+                <label asp-for="FacultyId" class="control-label"></label>
+                <select id="faculty" asp-for="FacultyId"
+                        asp-items="@(new SelectList(string.Empty, "Id", "Name"))"
+                        class="form-control custom-select"></select>
+                <span asp-validation-for="FacultyId" class="text-danger"></span>
+            </div>
+
+
+            <div class="form-group hiddenPart" style="display: none">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group hiddenPart" style="display: none">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+    <a asp-action="Index"><span class="fa fa-arrow-alt-circle-left"> &nbsp;</span> Back to List</a>
+</div>
+
+
+
+
+
+
+
+@section Scripts
+{
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+
+    <script>
+
+        $(document).ready(function() {
+            getFaculties();
+        });
+        $("#university").change(function() {
+            getFaculties();
+        });
+
+        function getFaculties() {
+            var universityId = $("#university").val();
+            //alert(universityId);
+            var items = '';
+            $.ajax({
+                url: '@(Url.Content("~/"))' + "Admin/Departments/GetFaculties/" + universityId,
+                type: "GET",
+                success: function(data) {
+                   // console.log(data);
+
+                    if (data.length > 0) {
+                        $.each(data,
+                            function(i, faculties) {
+                                items += "<option value='" + faculties.value + "'> " + faculties.text + "</option>";
+                            });
+
+                        $(".hiddenPart").css("display", "block");
+                        $("#faculty").html(items);
+                        console.log(items);
+                    } else {
+                        $(".hiddenPart").css("display", "none");
+                        alert("No Faculties available");
+//                        bootbox.alert({
+//                            size: "large",
+//                            message: 'No sub-category available for this category!!'
+//                        });
+                    }
+
+
+                }
+            });
+        }
+
+    </script>
+
+
+}

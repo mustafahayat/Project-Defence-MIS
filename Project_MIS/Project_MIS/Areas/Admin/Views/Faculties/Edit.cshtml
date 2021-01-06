@@ -1,0 +1,56 @@
+﻿@model Project_MIS.Models.Faculty
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+
+<br/><br/>
+
+<div class="card">
+    <div class="card-body bg-white">
+
+        <div class="col text-info">
+            <h1>Edit @Model.Name Faculty</h1>
+        </div>
+        <br />
+        @* past the form *@
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="UniversityId" class="control-label"></label>
+                <select class="form-control custom-select" asp-for="UniversityId" asp-items="ViewBag.University"></select>
+                <span asp-validation-for="UniversityId" class="text-danger"></span>
+            </div>
+
+            
+
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <textarea asp-for="Description" class="form-control"></textarea>
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+
+    </div>
+    <a asp-action="Index"><span class="fa fa-arrow-alt-circle-left"> &nbsp;</span> Back to List</a>
+</div>
+ 
+
+
+@section Scripts
+{
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+
+

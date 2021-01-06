@@ -1,0 +1,67 @@
+﻿
+@{
+    ViewData["Title"] = "Registration";
+}
+
+
+    <div class="container">
+
+        <div class="border border-danger p-3 my-3">
+            <div class="card bg-secondary p-3  ">
+
+                <h3 class="text-white text-center">
+                    Welcome to <strong>Project-Defence</strong> Registration Page
+                </h3>
+            </div>
+        </div>
+
+        <div class="card-columns align-items-baseline">
+            <!-- First Column -->
+
+            <div class="card bg-info">
+                <div class="card-body">
+                    <div class="card-text text-center">
+                        <a asp-area="Admin" asp-controller="Universities" asp-action="Index" class=" display-4 rounded text-dark">
+                            <span class="fa fa-pen-square"></span>
+                            <br>Register<br />University
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- second column -->
+            <div class="card bg-primary">
+                <div class="card-body">
+                    <div class="card-text text-center">
+                        <a asp-area="Admin" asp-controller="Faculties" asp-action="Index" class="display-4 rounded text-dark">
+                            <span class="fa fa-home"></span>
+                            <br>Register <br /> Faculty
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Third Columns -->
+            <div class="card bg-success">
+                <div class="card-body">
+                    <div class="card-text text-center">
+                        <a asp-area="Admin" asp-controller="Departments" asp-action="Index" class=" display-4 rounded text-dark">
+                            <span class="fa fa-building"></span>
+                            <br>Register<br />Department
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+        </div>
+
+
+
+
+
+    </div>
+

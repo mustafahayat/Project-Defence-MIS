@@ -1,0 +1,68 @@
+﻿@model IEnumerable<Project_MIS.Models.University>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<br />
+<br />
+<div class="card bg-white">
+    <div class="card-body bg-white">
+        <div class="row align-baseline">
+            <div class="col text-info">
+                <h1>List of Universities</h1>
+            </div>
+            <div class="col text-right">
+                <a asp-action="Create" class="btn btn-success"> <span class="fa fa-plus"></span> 
+                    &nbsp; New University</a>
+            </div>
+        </div>
+
+
+        <div>
+            @if (Model.Any())
+            {
+
+                @* past the table Data *@
+
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Name)
+                            </th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Name)
+                                </td>
+                                <td class="float-right">
+                                    <div class="btn-group">
+                                        <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-success "><i class="fa fa-edit "></i></a>
+                                        <a asp-action="Details" asp-route-id="@item.Id" class="btn-info btn"><i class="fa fa-list-alt"></i></a>
+                                        <a asp-action="Delete" asp-route-id="@item.Id" class="btn-danger btn"><i class="fa fa-trash"></i></a>
+
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+                
+            }
+            else
+            {
+                <p>Oops, No University to display!</p>
+            }
+
+        </div>
+    </div>
+</div>
+
+

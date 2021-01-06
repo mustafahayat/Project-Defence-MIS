@@ -1,0 +1,39 @@
+﻿@model Project_MIS.Models.University
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<br/><br/>
+
+<div class="card">
+    <div class="card-body bg-white">
+
+        <div class="col text-info">
+            <h1>Add New University</h1><hr/>
+        </div>
+        <br />
+        @* past the form *@
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+    <a asp-action="Index"><span class="fa fa-arrow-alt-circle-left"> &nbsp;</span> Back to List</a>
+</div>
+ 
+
+
+@section Scripts
+{
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+
+
