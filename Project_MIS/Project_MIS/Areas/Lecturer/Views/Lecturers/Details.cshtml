@@ -1,0 +1,66 @@
+﻿@model Project_MIS.Models.Lecturer
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<br />
+<br />
+
+<div class="card">
+    <div class="card-body bg-white">
+
+        <div class="col text-info">
+            <h1>Details Info of @Model.Name  @Model.LastName Profile</h1><hr />
+        </div>
+        <br />
+        @* past the form *@
+        <div class="row">
+
+            <div class="col-8">
+
+                    <div class="form-group">
+                        <label asp-for="Name" class="control-label"></label>
+                        <input readonly="readonly" asp-for="Name" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="LastName" class="control-label"></label>
+                        <input readonly="readonly" asp-for="LastName" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="DepartmentId" class="control-label"></label>
+                        <select asp-for="DepartmentId" class="form-control" asp-items="ViewBag.DepartmentId"></select>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Gender" class="control-label"></label>
+                        <select disabled="disabled" asp-for="Gender" asp-items="Html.GetEnumSelectList<Gender>()" class="form-control"></select>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Image" class="control-label"></label>
+                        <input readonly="readonly" type="file" asp-for="Image" class="form-control custom-file" />
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="Email" class="control-label"></label>
+                        <input readonly="readonly" asp-for="Email" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Phone" class="control-label"></label>
+                        <input readonly="readonly" asp-for="Phone" class="form-control" />
+                    </div>
+
+                <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+                <a asp-action="Index"><span class="fa fa-arrow-alt-circle-left"> &nbsp;</span> Back to List</a>
+
+            
+                </div>
+            <div class="col-2 offset-1">
+                <img src="@Model.Image" class="card-img" />
+            </div>
+        </div>
+
+
+
+    </div>
+   </div>
+

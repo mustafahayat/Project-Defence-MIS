@@ -1,0 +1,79 @@
+﻿@model IEnumerable<Project_MIS.Models.EvaluationCommittee>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<br />
+<br />
+<div class="card bg-white">
+    <div class="card-body bg-white">
+        <div class="row align-baseline">
+            <div class="col text-info">
+                <h1>List of Committee Members</h1><hr/>
+            </div>
+            <div class="col text-right">
+                <a asp-action="Create" > <span class="fa fa-plus"></span>  &nbsp; New Member</a>
+            </div>
+        </div>
+
+
+        <div>
+            @if (Model.Any())
+            {
+
+		@* past the table Data *@
+
+                
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.CommitteeId)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Lecturer)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.LecturerTask)
+                        </th>
+                        <th></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    @foreach (var item in Model) {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Committee.Name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Lecturer.Name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.LecturerTask)
+                            </td>
+                            <td class="float-right">
+                                <div class="btn-group">
+                                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-success "><i class="fa fa-edit "></i></a>
+                                    <a asp-action="Details" asp-route-id="@item.Id" class="btn-info btn"><i class="fa fa-list-alt"></i></a>
+                                    <a asp-action="Delete" asp-route-id="@item.Id"  class="btn-danger btn"><i class="fa fa-trash"></i></a>
+
+                                </div>
+                            </td>
+
+                            </tr>
+                    }
+                    </tbody>
+                </table>
+
+            }
+            else
+            {
+                <p>Oops, No records to display!</p>
+            }
+
+        </div>
+    </div>
+</div>
+
+
+

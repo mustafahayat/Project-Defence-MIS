@@ -19,7 +19,7 @@
             <div class="card bg-primary">
                 <div class="card-body">
                     <div class="card-text text-center">
-                        <a asp-area="ProjectTeam" asp-controller="Home" asp-action="Index" class="display-4 rounded text-dark">
+                        <a asp-area="ProjectTeam" asp-controller="Projects" asp-action="Index" class="display-4 rounded text-dark">
                             <span class="fa fa-project-diagram"></span>
                             <br>All <br/> Projects
                         </a>
@@ -28,11 +28,11 @@
             </div>
 
             <!-- second column -->
-            <div class="card bg-secondary">
+            <div class="card bg-danger">
                 <div class="card-body">
                     <div class="card-text text-center">
-                        <a asp-area="ProjectTeam" asp-controller="Home" asp-action="Index" class=" display-4 rounded text-dark">
-                            <span class="fa fa-check-circle"></span>
+                        <a asp-area="ProjectTeam" asp-controller="Projects" asp-action="ReadyProject" class=" display-4 rounded text-dark">
+                            <span class="fa fa-pen-square"></span>
                             <br>Ready<br/>Projects
                         </a>
                     </div>
@@ -40,12 +40,12 @@
             </div>
 
             <!-- Third Columns -->
-            <div class="card bg-danger">
+            <div class="card bg-success">
                 <div class="card-body">
                     <div class="card-text text-center">
-                        <a asp-area="ProjectTeam" asp-controller="Home" asp-action="Index" class=" display-4 rounded text-dark">
-                            <span class="fa fa-pen-square"></span>
-                            <br>Pending<br/>Projects
+                        <a asp-area="ProjectTeam" asp-controller="Projects" asp-action="CompletedProject" class=" display-4 rounded text-dark">
+                            <span class="fa fa-check-circle"></span>
+                            <br>Completed<br/>Projects
                         </a>
                     </div>
                 </div>

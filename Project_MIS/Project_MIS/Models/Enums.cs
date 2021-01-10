@@ -15,14 +15,22 @@ namespace Project_MIS.Models
         ProjectExaminer
     }
 
+    public enum Role
+    {
+       ProjectLeader,
+       ProjectMember
+    }
+    public enum Gender
+    {
+        Female,
+        Male
+    }
     public enum ProjectState
     {
+        UnderDevelopment,
         Ready,
-        WaitingForEvaluation,
-        UnderProcessOfEvaluate,
-        Suspended,
-        Rejected,
-        Completed
+        Completed,
+        Rejected
     }
    
 }

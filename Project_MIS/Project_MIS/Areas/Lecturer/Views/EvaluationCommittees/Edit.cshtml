@@ -1,0 +1,67 @@
+﻿@model Project_MIS.Models.EvaluationCommittee
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+
+
+<br />
+<br />
+
+<div class="card">
+    <div class="card-body bg-white">
+
+        <div class="col text-info">
+            <h1>Edit Committee Member</h1><hr />
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-8">
+                @* past the form *@
+                <form asp-action="Edit">
+                    <div asp-validation-summary="All" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="CommitteeId" class="control-label"></label>
+                        <select asp-for="CommitteeId" class="form-control" asp-items="ViewBag.CommitteeId"></select>
+                         
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="LecturerId" class="control-label"></label>
+                        <select asp-for="LecturerId" class="form-control" asp-items="ViewBag.LecturerId"></select>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="LecturerTask" class="control-label"></label>
+                        <select asp-for="LecturerTask" asp-items="Html.GetEnumSelectList<LecturerTask>()" class="form-control"></select>
+                        <span asp-validation-for="LecturerTask" class="text-danger"></span>
+                    </div>
+                    <input type="hidden" asp-for="Id" />
+                    <div class="form-group">
+                        <input type="submit" value="Save" class="btn btn-primary" />
+                    </div>
+                </form>
+            </div>
+            <div class="col-4 border-left">
+                <span class="text-info">List of available Lecturers</span><hr/>
+                <ul class="list">
+                    @foreach (var item in ViewBag.Lecturers)
+                    {
+                        <li>@item.Name @item.LastName</li>
+                    }
+                </ul>
+            </div>
+        </div>
+       
+
+    </div>
+    <a asp-action="Index"><span class="fa fa-arrow-alt-circle-left"> &nbsp;</span> Back to List</a>
+</div>
+
+
+
+@section Scripts
+{
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+

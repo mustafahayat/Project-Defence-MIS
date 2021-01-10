@@ -1,0 +1,79 @@
+﻿@model Project_MIS.ViewModel.ProjectProjectResultViewModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+
+
+<br />
+<br />
+
+<div class="card">
+    <div class="card-body bg-white">
+
+        <div class="col text-info">
+            <h1>Edit your comment</h1><hr />
+        </div>
+        <br />
+        @* past the form *@
+        <div class="row">
+            <div class="col">
+                <form asp-action="Edit">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="ProjectResult.CommitteeId" class="control-label"></label>
+                        <select asp-for="ProjectResult.CommitteeId" class="form-control" asp-items="ViewBag.CommitteeId"></select>
+                        <span asp-validation-for="ProjectResult.CommitteeId" class="text-danger"></span>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label asp-for="ProjectResult.Comment" class="control-label"></label>
+                        <textarea asp-for="ProjectResult.Comment" rows="7" class="form-control" placeholder="write your comment about this project...."></textarea>
+                        <span asp-validation-for="ProjectResult.Comment" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Submit" class="btn btn-primary btn-block" />
+                    </div>
+                </form>
+            </div>
+            <div class="col border-left">
+                <h5 class="text-success ">Project Info</h5><hr />
+                <div class="form-group">
+                    <div class="col-4">
+                        <span class="text-info font-weight-bold">Project Name</span>
+                    </div>
+                    <div class="col-8 ">
+                        @Model.Project.Name
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <div class="col-4">
+                        <span class="text-info font-weight-bold">Project Description</span>
+                    </div>
+                    <div class="col-8 ">
+                        @Model.Project.Description
+                    </div>
+                </div>
+                <a asp-controller="Projects" asp-action="Details" asp-route-id="@Model.Project.Id" class="float-right "><span class="fa fa-info-circle">  &nbsp;</span> more info about project</a>
+
+
+
+
+            </div>
+        </div>
+
+
+    </div>
+    <a asp-action="Index"><span class="fa fa-arrow-alt-circle-left"> &nbsp;</span> back to List</a>
+</div>
+
+
+
+@section Scripts
+{
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

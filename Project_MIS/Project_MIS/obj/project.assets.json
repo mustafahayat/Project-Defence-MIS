@@ -8477,11 +8477,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\03 Project Defence  MIS\\Project_MIS\\Project_MIS\\Project_MIS.csproj",
+      "projectUniqueName": "E:\\My Repo\\Project-Defence-MIS\\Project_MIS\\Project_MIS\\Project_MIS.csproj",
       "projectName": "Project_MIS",
-      "projectPath": "E:\\03 Project Defence  MIS\\Project_MIS\\Project_MIS\\Project_MIS.csproj",
+      "projectPath": "E:\\My Repo\\Project-Defence-MIS\\Project_MIS\\Project_MIS\\Project_MIS.csproj",
       "packagesPath": "C:\\Users\\King\\.nuget\\packages\\",
-      "outputPath": "E:\\03 Project Defence  MIS\\Project_MIS\\Project_MIS\\obj\\",
+      "outputPath": "E:\\My Repo\\Project-Defence-MIS\\Project_MIS\\Project_MIS\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\King\\AppData\\Roaming\\NuGet\\NuGet.Config",

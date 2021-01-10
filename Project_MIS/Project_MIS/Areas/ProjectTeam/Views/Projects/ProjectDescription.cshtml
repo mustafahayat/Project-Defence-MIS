@@ -1,0 +1,83 @@
+﻿@model Project_MIS.Models.Project
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+
+<br />
+<br />
+
+<div class="card">
+    <div class="card-body bg-white">
+
+        <div class="col text-info">
+            <h1>Details info of @Model.Name Project</h1>
+            
+            <div class="float-right">
+                <span class="fa fa-hand-point-right text-info"></span>
+                | <a asp-controller="ProjectResults" asp-action="CommitteeFeedback" asp-route-id="@Model.Id"><span class="fa fa-brain"></span> &nbsp; Share your idea</a>
+                | <a asp-controller="ProjectResults" asp-action="CommitteeFeedback" asp-route-id="@Model.Id"><span class="fa fa-comment"></span> &nbsp; Share your comment</a> |
+                <span class="fa fa-hand-point-left text-info"></span>
+
+            </div>
+        </div>
+        <br /><hr />
+        <div class="row">
+            <div class="col-8">
+
+                @* past the form *@
+                <div class="form-group">
+                    <label asp-for="Name" class="control-label"></label>
+                    <input readonly="readonly" asp-for="Name" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label asp-for="Description" class="control-label"></label><br/>
+                    <div class="border p-1">
+                        @Html.Raw(Model.Description)
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label asp-for="LecturerId" class="control-label"></label>
+                    <select disabled="disabled" asp-for="LecturerId" class="form-control" asp-items="ViewBag.LecturerId"></select>
+                </div>
+                
+            </div>
+            <div class="col-4  border-left">
+                <span class="text-info font-weight-bold">
+                    List of students, Who are in the project.
+                </span>
+                <hr />
+
+
+                <div>
+                    <span class="float-left border-bottom">
+                        <strong>Student Name</strong>
+                    </span>
+                    <span class="float-right border-bottom">
+                        <strong>Role in the project</strong>
+                    </span><br />
+                </div>
+
+                <br />
+                <ul>
+
+                    @foreach (var item in ViewBag.Students)
+                    {
+
+                        <li>
+                            <div class="float-left">@item.Name</div>, &nbsp;
+                            <div class="float-right">
+                                @(item.Role.ToString() == "ProjectLeader" ? item.Role + "*" : item.Role.ToString())
+                            </div> 
+                        </li>
+
+                    }
+                </ul>
+            </div>
+        </div>
+        <a asp-action="Index"><span class="fa fa-arrow-alt-circle-left"> &nbsp;</span> Back to List</a>
+        
+    </div>
+</div>
+

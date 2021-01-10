@@ -1,0 +1,31 @@
+﻿@model Project_MIS.Models.Committee
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+
+
+<br />
+<br />
+
+<div class="card">
+    <div class="card-body bg-white">
+
+        <div class="col text-info">
+            <h1>Details of Committee</h1><hr />
+        </div>
+        <br />
+        @* past the form *@
+        <div class="form-group">
+            <label asp-for="Name" class="control-label"></label>
+            <input asp-for="Name" class="form-control" />
+        </div>
+        <a asp-action="Index"><span class="fa fa-arrow-alt-circle-left"> &nbsp;</span> Back to List</a> | 
+        <a asp-action="Edit" asp-route-id="@Model.Id"><span class="fa fa-edit"> &nbsp;</span> Edit</a>
+
+    </div>
+</div>
+
+
+

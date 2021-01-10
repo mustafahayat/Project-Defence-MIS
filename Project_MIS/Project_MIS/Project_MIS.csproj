@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.0</TargetFramework>
@@ -9,6 +9,8 @@
   <ItemGroup>
     <Compile Remove="Data\Migrations\20210103113154_addCommitteeAndDefenceDay.cs" />
     <Compile Remove="Data\Migrations\20210103113154_addCommitteeAndDefenceDay.Designer.cs" />
+    <Compile Remove="Data\Migrations\20210107120618_addPorjectIdFK_ToStudentTable.cs" />
+    <Compile Remove="Data\Migrations\20210107120618_addPorjectIdFK_ToStudentTable.Designer.cs" />
   </ItemGroup>
 
 
@@ -24,8 +26,80 @@
 
 
   <ItemGroup>
-    <Folder Include="Areas\Lecturer\Controllers\" />
     <Folder Include="Controllers\" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <None Include="wwwroot\lib\jquery.datatables.1.10.11\.signature.p7s" />
+    <None Include="wwwroot\lib\jquery.datatables.1.10.11\Content\Content\DataTables\css\common.scss" />
+    <None Include="wwwroot\lib\jquery.datatables.1.10.11\Content\Content\DataTables\css\mixins.scss" />
+    <None Include="wwwroot\lib\jquery.datatables.1.10.11\Content\Content\DataTables\swf\flashExport.swf" />
+    <None Include="wwwroot\lib\jquery.datatables.1.10.11\Content\Scripts\DataTables\autoFill.bootstrap.js" />
+    <None Include="wwwroot\lib\jquery.datatables.1.10.11\Content\Scripts\DataTables\autoFill.bootstrap.min.js" />
+    <None Include="wwwroot\lib\jquery.datatables.1.10.11\Content\Scripts\DataTables\autoFill.foundation.js" />
+    <None Include="wwwroot\lib\jquery.datatables.1.10.11\Content\Scripts\DataTables\autoFill.foundation.min.js" />
+    <None Include="wwwroot\lib\jquery.datatables.1.10.11\Content\Scripts\DataTables\autoFill.jqueryui.js" />
+    <None Include="wwwroot\lib\jquery.datatables.1.10.11\Content\Scripts\DataTables\autoFill.jqueryui.min.js" />
+    <None Include="wwwroot\lib\jquery.datatables.1.10.11\Content\Scripts\DataTables\buttons.bootstrap.js" />
+    <None Include="wwwroot\lib\jquery.datatables.1.10.11\Content\Scripts\DataTables\buttons.bootstrap.min.js" />
+    <None Include="wwwroot\lib\jquery.datatables.1.10.11\Content\Scripts\DataTables\buttons.bootstrap4.js" />
+    <None Include="wwwroot\lib\jquery.datatables.1.10.11\Content\Scripts\DataTables\buttons.bootstrap4.min.js" />
+    <None Include="wwwroot\lib\jquery.datatables.1.10.11\Content\Scripts\DataTables\buttons.colVis.js" />
+    <None Include="wwwroot\lib\jquery.datatables.1.10.11\Content\Scripts\DataTables\buttons.colVis.min.js" />
+    <None Include="wwwroot\lib\jquery.datatables.1.10.11\Content\Scripts\DataTables\buttons.flash.js" />
+    <None Include="wwwroot\lib\jquery.datatables.1.10.11\Content\Scripts\DataTables\buttons.flash.min.js" />
+    <None Include="wwwroot\lib\jquery.datatables.1.10.11\Content\Scripts\DataTables\buttons.foundation.js" />
+    <None Include="wwwroot\lib\jquery.datatables.1.10.11\Content\Scripts\DataTables\buttons.foundation.min.js" />
+    <None Include="wwwroot\lib\jquery.datatables.1.10.11\Content\Scripts\DataTables\buttons.html5.js" />
+    <None Include="wwwroot\lib\jquery.datatables.1.10.11\Content\Scripts\DataTables\buttons.html5.min.js" />
+    <None Include="wwwroot\lib\jquery.datatables.1.10.11\Content\Scripts\DataTables\buttons.jqueryui.js" />
+    <None Include="wwwroot\lib\jquery.datatables.1.10.11\Content\Scripts\DataTables\buttons.jqueryui.min.js" />
+    <None Include="wwwroot\lib\jquery.datatables.1.10.11\Content\Scripts\DataTables\buttons.print.js" />
+    <None Include="wwwroot\lib\jquery.datatables.1.10.11\Content\Scripts\DataTables\buttons.print.min.js" />
+    <None Include="wwwroot\lib\jquery.datatables.1.10.11\Content\Scripts\DataTables\dataTables.autoFill.js" />
+    <None Include="wwwroot\lib\jquery.datatables.1.10.11\Content\Scripts\DataTables\dataTables.autoFill.min.js" />
+    <None Include="wwwroot\lib\jquery.datatables.1.10.11\Content\Scripts\DataTables\dataTables.bootstrap.js" />
+    <None Include="wwwroot\lib\jquery.datatables.1.10.11\Content\Scripts\DataTables\dataTables.bootstrap.min.js" />
+    <None Include="wwwroot\lib\jquery.datatables.1.10.11\Content\Scripts\DataTables\dataTables.bootstrap4.js" />
+    <None Include="wwwroot\lib\jquery.datatables.1.10.11\Content\Scripts\DataTables\dataTables.bootstrap4.min.js" />
+    <None Include="wwwroot\lib\jquery.datatables.1.10.11\Content\Scripts\DataTables\dataTables.buttons.js" />
+    <None Include="wwwroot\lib\jquery.datatables.1.10.11\Content\Scripts\DataTables\dataTables.buttons.min.js" />
+    <None Include="wwwroot\lib\jquery.datatables.1.10.11\Content\Scripts\DataTables\dataTables.colReorder.js" />
+    <None Include="wwwroot\lib\jquery.datatables.1.10.11\Content\Scripts\DataTables\dataTables.colReorder.min.js" />
+    <None Include="wwwroot\lib\jquery.datatables.1.10.11\Content\Scripts\DataTables\dataTables.fixedColumns.js" />
+    <None Include="wwwroot\lib\jquery.datatables.1.10.11\Content\Scripts\DataTables\dataTables.fixedColumns.min.js" />
+    <None Include="wwwroot\lib\jquery.datatables.1.10.11\Content\Scripts\DataTables\dataTables.fixedHeader.js" />
+    <None Include="wwwroot\lib\jquery.datatables.1.10.11\Content\Scripts\DataTables\dataTables.fixedHeader.min.js" />
+    <None Include="wwwroot\lib\jquery.datatables.1.10.11\Content\Scripts\DataTables\dataTables.foundation.js" />
+    <None Include="wwwroot\lib\jquery.datatables.1.10.11\Content\Scripts\DataTables\dataTables.foundation.min.js" />
+    <None Include="wwwroot\lib\jquery.datatables.1.10.11\Content\Scripts\DataTables\dataTables.jqueryui.js" />
+    <None Include="wwwroot\lib\jquery.datatables.1.10.11\Content\Scripts\DataTables\dataTables.jqueryui.min.js" />
+    <None Include="wwwroot\lib\jquery.datatables.1.10.11\Content\Scripts\DataTables\dataTables.keyTable.js" />
+    <None Include="wwwroot\lib\jquery.datatables.1.10.11\Content\Scripts\DataTables\dataTables.keyTable.min.js" />
+    <None Include="wwwroot\lib\jquery.datatables.1.10.11\Content\Scripts\DataTables\dataTables.material.js" />
+    <None Include="wwwroot\lib\jquery.datatables.1.10.11\Content\Scripts\DataTables\dataTables.material.min.js" />
+    <None Include="wwwroot\lib\jquery.datatables.1.10.11\Content\Scripts\DataTables\dataTables.responsive.js" />
+    <None Include="wwwroot\lib\jquery.datatables.1.10.11\Content\Scripts\DataTables\dataTables.responsive.min.js" />
+    <None Include="wwwroot\lib\jquery.datatables.1.10.11\Content\Scripts\DataTables\dataTables.rowReorder.js" />
+    <None Include="wwwroot\lib\jquery.datatables.1.10.11\Content\Scripts\DataTables\dataTables.rowReorder.min.js" />
+    <None Include="wwwroot\lib\jquery.datatables.1.10.11\Content\Scripts\DataTables\dataTables.scroller.js" />
+    <None Include="wwwroot\lib\jquery.datatables.1.10.11\Content\Scripts\DataTables\dataTables.scroller.min.js" />
+    <None Include="wwwroot\lib\jquery.datatables.1.10.11\Content\Scripts\DataTables\dataTables.select.js" />
+    <None Include="wwwroot\lib\jquery.datatables.1.10.11\Content\Scripts\DataTables\dataTables.select.min.js" />
+    <None Include="wwwroot\lib\jquery.datatables.1.10.11\Content\Scripts\DataTables\dataTables.semanticui.js" />
+    <None Include="wwwroot\lib\jquery.datatables.1.10.11\Content\Scripts\DataTables\dataTables.semanticui.min.js" />
+    <None Include="wwwroot\lib\jquery.datatables.1.10.11\Content\Scripts\DataTables\dataTables.uikit.js" />
+    <None Include="wwwroot\lib\jquery.datatables.1.10.11\Content\Scripts\DataTables\dataTables.uikit.min.js" />
+    <None Include="wwwroot\lib\jquery.datatables.1.10.11\Content\Scripts\DataTables\jquery.dataTables.js" />
+    <None Include="wwwroot\lib\jquery.datatables.1.10.11\Content\Scripts\DataTables\jquery.dataTables.min.js" />
+    <None Include="wwwroot\lib\jquery.datatables.1.10.11\Content\Scripts\DataTables\responsive.bootstrap.js" />
+    <None Include="wwwroot\lib\jquery.datatables.1.10.11\Content\Scripts\DataTables\responsive.bootstrap.min.js" />
+    <None Include="wwwroot\lib\jquery.datatables.1.10.11\Content\Scripts\DataTables\responsive.foundation.js" />
+    <None Include="wwwroot\lib\jquery.datatables.1.10.11\Content\Scripts\DataTables\responsive.foundation.min.js" />
+    <None Include="wwwroot\lib\jquery.datatables.1.10.11\Content\Scripts\DataTables\responsive.jqueryui.js" />
+    <None Include="wwwroot\lib\jquery.datatables.1.10.11\Content\Scripts\DataTables\responsive.jqueryui.min.js" />
+    <None Include="wwwroot\lib\jquery.datatables.1.10.11\jquery.datatables.1.10.11.nupkg" />
   </ItemGroup>
 
 </Project>

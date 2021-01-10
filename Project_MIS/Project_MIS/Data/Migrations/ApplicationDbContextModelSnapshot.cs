@@ -219,35 +219,21 @@ namespace Project_MIS.Data.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("Project_MIS.Models.DefenceDay", b =>
+            modelBuilder.Entity("Project_MIS.Models.Committee", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Comment")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("CommitteeId")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("DefenceDateTime")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("ProjectGroupId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("ProjectState")
-                        .HasColumnType("int");
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(120)")
+                        .HasMaxLength(120);
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CommitteeId");
-
-                    b.HasIndex("ProjectGroupId");
-
-                    b.ToTable("DefenceDays");
+                    b.ToTable("Committees");
                 });
 
             modelBuilder.Entity("Project_MIS.Models.Department", b =>
@@ -279,18 +265,18 @@ namespace Project_MIS.Data.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<int>("CommitteeId")
+                        .HasColumnType("int");
+
                     b.Property<int>("LecturerId")
                         .HasColumnType("int");
 
                     b.Property<int>("LecturerTask")
                         .HasColumnType("int");
 
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(100)")
-                        .HasMaxLength(100);
-
                     b.HasKey("Id");
+
+                    b.HasIndex("CommitteeId");
 
                     b.HasIndex("LecturerId");
 
@@ -337,6 +323,9 @@ namespace Project_MIS.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("Gender")
+                        .HasColumnType("int");
+
                     b.Property<string>("Image")
                         .HasColumnType("nvarchar(max)");
 
@@ -362,7 +351,7 @@ namespace Project_MIS.Data.Migrations
                     b.ToTable("Lecturers");
                 });
 
-            modelBuilder.Entity("Project_MIS.Models.ProjectGroup", b =>
+            modelBuilder.Entity("Project_MIS.Models.Project", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -384,16 +373,47 @@ namespace Project_MIS.Data.Migrations
                     b.Property<int>("ProjectState")
                         .HasColumnType("int");
 
-                    b.Property<int>("StudentId")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
 
                     b.HasIndex("LecturerId");
 
-                    b.HasIndex("StudentId");
+                    b.ToTable("Projects");
+                });
 
-                    b.ToTable("ProjectGroups");
+            modelBuilder.Entity("Project_MIS.Models.ProjectResult", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Comment")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("CommitteeId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("DefenceDateTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("LecturerId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ProjectId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ProjectState")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CommitteeId");
+
+                    b.HasIndex("LecturerId");
+
+                    b.HasIndex("ProjectId");
+
+                    b.ToTable("ProjectResults");
                 });
 
             modelBuilder.Entity("Project_MIS.Models.Student", b =>
@@ -411,6 +431,9 @@ namespace Project_MIS.Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("FacultyId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Gender")
                         .HasColumnType("int");
 
                     b.Property<string>("Image")
@@ -431,6 +454,12 @@ namespace Project_MIS.Data.Migrations
                         .HasColumnType("nvarchar(20)")
                         .HasMaxLength(20);
 
+                    b.Property<int>("ProjectId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Role")
+                        .HasColumnType("int");
+
                     b.Property<int>("RollNo")
                         .HasColumnType("int");
 
@@ -439,6 +468,8 @@ namespace Project_MIS.Data.Migrations
                     b.HasIndex("DepartmentId");
 
                     b.HasIndex("FacultyId");
+
+                    b.HasIndex("ProjectId");
 
                     b.ToTable("Students");
                 });
@@ -511,21 +542,6 @@ namespace Project_MIS.Data.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Project_MIS.Models.DefenceDay", b =>
-                {
-                    b.HasOne("Project_MIS.Models.EvaluationCommittee", "EvaluationCommittee")
-                        .WithMany()
-                        .HasForeignKey("CommitteeId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Project_MIS.Models.ProjectGroup", "ProjectGroup")
-                        .WithMany()
-                        .HasForeignKey("ProjectGroupId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
             modelBuilder.Entity("Project_MIS.Models.Department", b =>
                 {
                     b.HasOne("Project_MIS.Models.Faculty", "Faculty")
@@ -537,6 +553,12 @@ namespace Project_MIS.Data.Migrations
 
             modelBuilder.Entity("Project_MIS.Models.EvaluationCommittee", b =>
                 {
+                    b.HasOne("Project_MIS.Models.Committee", "Committee")
+                        .WithMany()
+                        .HasForeignKey("CommitteeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("Project_MIS.Models.Lecturer", "Lecturer")
                         .WithMany()
                         .HasForeignKey("LecturerId")
@@ -562,17 +584,32 @@ namespace Project_MIS.Data.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Project_MIS.Models.ProjectGroup", b =>
+            modelBuilder.Entity("Project_MIS.Models.Project", b =>
                 {
                     b.HasOne("Project_MIS.Models.Lecturer", "Lecturer")
                         .WithMany()
                         .HasForeignKey("LecturerId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
 
-                    b.HasOne("Project_MIS.Models.Student", "Student")
+            modelBuilder.Entity("Project_MIS.Models.ProjectResult", b =>
+                {
+                    b.HasOne("Project_MIS.Models.Committee", "Committee")
                         .WithMany()
-                        .HasForeignKey("StudentId")
+                        .HasForeignKey("CommitteeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Project_MIS.Models.Lecturer", "Lecturer")
+                        .WithMany()
+                        .HasForeignKey("LecturerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Project_MIS.Models.Project", "Project")
+                        .WithMany()
+                        .HasForeignKey("ProjectId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
@@ -588,6 +625,12 @@ namespace Project_MIS.Data.Migrations
                     b.HasOne("Project_MIS.Models.Faculty", "Faculty")
                         .WithMany()
                         .HasForeignKey("FacultyId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Project_MIS.Models.Project", "Project")
+                        .WithMany()
+                        .HasForeignKey("ProjectId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

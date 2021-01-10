@@ -21,6 +21,9 @@ namespace Project_MIS.Models
         public string Image { get; set; }
 
         [Required]
+        public Gender Gender { get; set; }
+
+        [Required]
         [EmailAddress]
         public string Email { get; set; }
 

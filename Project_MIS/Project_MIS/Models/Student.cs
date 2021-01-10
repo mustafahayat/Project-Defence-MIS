@@ -26,5 +26,16 @@ namespace Project_MIS.Models
 
         [ForeignKey(nameof(FacultyId))]
         public Faculty Faculty { get; set; }
+
+        [Required]
+        [Display(Name = "Project Name")]
+        public int ProjectId { get; set; }
+
+        [ForeignKey(nameof(ProjectId))]
+        public Project Project { get; set; }
+
+        [Required]
+        
+        public Role Role { get; set; }
     }
 }

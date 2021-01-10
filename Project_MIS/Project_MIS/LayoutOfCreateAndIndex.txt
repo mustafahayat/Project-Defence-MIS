@@ -8,7 +8,7 @@
     <div class="card-body bg-white">
         <div class="row align-baseline">
             <div class="col text-info">
-                <h1>List of all the Categories</h1>
+                <h1>List of all the Categories</h1><hr/>
             </div>
             <div class="col text-right">
                 <a asp-action="Create" class="btn btn-success"> <span class="fa fa-plus"></span>  &nbsp; New Student</a>
@@ -33,7 +33,7 @@
             }
             else
             {
-                <p>Oops, No Students to display!</p>
+                <p>Oops, No records to display!</p>
             }
 
         </div>
@@ -52,7 +52,7 @@
         <div class="card-body bg-white">
 
             <div class="col text-info">
-                <h1>Create New Coupon</h1>
+                <h1>Create New Coupon</h1><hr/>
             </div>
             <br />
 			@* past the form *@

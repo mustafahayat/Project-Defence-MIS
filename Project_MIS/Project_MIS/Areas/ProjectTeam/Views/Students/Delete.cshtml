@@ -4,66 +4,91 @@
     ViewData["Title"] = "Delete";
 }
 
-<h1>Delete</h1>
 
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>Student</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.RollNo)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.RollNo)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Department)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Department.Name)
-        </dd class>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Faculty)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Faculty.Description)
-        </dd class>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.LastName)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.LastName)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Image)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Image)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Email)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Email)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Phone)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Phone)
-        </dd>
-    </dl>
-    
-    <form asp-action="Delete">
-        <input type="hidden" asp-for="Id" />
-        <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a asp-action="Index">Back to List</a>
-    </form>
+
+<br />
+<br />
+
+<div class="card">
+    <div class="card-body bg-white">
+
+        <div class="col text-danger">
+            <h1>Are you sure to delete @Model.Name @Model.LastName Profile?</h1><hr />
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-9">
+                <div class="form-group">
+                    <label asp-for="FacultyId" class="control-label"></label>
+                    <select disabled="disabled" asp-for="FacultyId" class="form-control custom-select" asp-items="ViewBag.FacultyId"></select>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="DepartmentId" class="control-label"></label>
+                    <select disabled="disabled" asp-for="DepartmentId" class="form-control custom-select" asp-items="ViewBag.DepartmentId"></select>
+                </div>
+                
+                
+                <div class="form-group">
+                    <label asp-for="ProjectId" class="control-label"></label>
+                    <select disabled="disabled" asp-for="ProjectId" class="form-control custom-select" asp-items="ViewBag.ProjectId"></select>
+                </div>
+                    
+                <div class="form-group">
+                    <label asp-for="Role" class="control-label"></label>
+                    <select disabled="disabled" asp-for="Role" class="form-control custom-select" asp-items="Html.GetEnumSelectList<Role>()"></select>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="RollNo" class="control-label"></label>
+                    <input readonly="readonly" asp-for="RollNo" class="form-control" />
+                </div>
+
+
+                <div class="form-group">
+                    <label asp-for="Name" class="control-label"></label>
+                    <input readonly="readonly" asp-for="Name" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label asp-for="LastName" class="control-label"></label>
+                    <input readonly="readonly" asp-for="LastName" class="form-control" />
+                </div>
+
+
+                <div class="form-group">
+                    <label asp-for="Gender" class="control-label"></label>
+                    <select disabled="disabled" asp-for="Gender" class="form-control custom-select" asp-items="Html.GetEnumSelectList<Gender>()"></select>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Email" class="control-label"></label>
+                    <input disabled="disabled" asp-for="Email" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label asp-for="Phone" class="control-label"></label>
+                    <input readonly="readonly" asp-for="Phone" class="form-control" />
+                </div>
+
+                <form asp-action="Delete">
+                    <input type="hidden" asp-for="Id" />
+                    <input type="submit" value="Delete" class="btn btn-danger" /> |
+                    <a asp-action="Index" class="btn btn-info"><span class="fa fa-arrow-alt-circle-left"> &nbsp;</span> Back to List</a>
+
+                </form>
+
+                
+              
+            </div>
+            <div class="col-2 offset-1">
+                <img src="@Model.Image" class="card-img" />
+            </div>
+        </div>
+
+    </div>
+
 </div>
+
+
+
+
+

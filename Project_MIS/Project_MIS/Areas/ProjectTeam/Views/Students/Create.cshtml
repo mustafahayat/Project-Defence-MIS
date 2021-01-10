@@ -16,7 +16,7 @@
         @* past the form *@
     <form asp-action="Create" enctype="multipart/form-data">
         <div asp-validation-summary="All" class="text-danger"></div>
-        
+
         <div class="form-group">
             <label asp-for="FacultyId" class="control-label"></label>
             <select asp-for="FacultyId" class="form-control custom-select" asp-items="ViewBag.FacultyId"></select>
@@ -26,14 +26,26 @@
             <label asp-for="DepartmentId" class="control-label"></label>
             <select asp-for="DepartmentId" class="form-control custom-select" asp-items="ViewBag.DepartmentId"></select>
         </div>
+        
+        
+        <div class="form-group">
+            <label asp-for="ProjectId" class="control-label"></label>
+            <select asp-for="ProjectId" class="form-control custom-select" asp-items="ViewBag.ProjectId"></select>
+        </div>
+                    
+        <div class="form-group">
+            <label asp-for="Role" class="control-label"></label>
+            <select asp-for="Role" class="form-control custom-select" asp-items="Html.GetEnumSelectList<Role>()"></select>
+        </div>
+
 
         <div class="form-group">
             <label asp-for="RollNo" class="control-label"></label>
             <input asp-for="RollNo" class="form-control" />
             <span asp-validation-for="RollNo" class="text-danger"></span>
         </div>
-        
-        
+
+
         <div class="form-group">
             <label asp-for="Name" class="control-label"></label>
             <input asp-for="Name" class="form-control" />
@@ -49,6 +61,14 @@
             <input type="file" asp-for="Image" class="form-control custom-file" />
             <span asp-validation-for="Image" class="text-danger"></span>
         </div>
+        
+         
+        <div class="form-group">
+            <label asp-for="Gender" class="control-label"></label>
+            <select asp-for="Gender" class="form-control custom-select" asp-items="Html.GetEnumSelectList<Gender>()"></select>
+            <span asp-validation-for="Gender" class="text-danger"></span>
+        </div>
+
         <div class="form-group">
             <label asp-for="Email" class="control-label"></label>
             <input asp-for="Email" class="form-control" />

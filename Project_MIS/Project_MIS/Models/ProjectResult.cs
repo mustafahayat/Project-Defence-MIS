@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Project_MIS.Models
 {
-    public class DefenceDay :Base
+    public class ProjectResult :Base
     {
 
         [Required]
@@ -16,10 +16,10 @@ namespace Project_MIS.Models
         public string Comment { get; set; }
         [Required]
         [Display(Name = "Project Name")]
-        public int ProjectGroupId { get; set; }
+        public int ProjectId { get; set; }
 
-        [ForeignKey(nameof(ProjectGroupId))]
-        public ProjectGroup ProjectGroup { get; set; }
+        [ForeignKey(nameof(ProjectId))]
+        public Project Project { get; set; }
 
         [Required]
         public ProjectState ProjectState { get; set; }
@@ -29,6 +29,13 @@ namespace Project_MIS.Models
         public int CommitteeId { get; set; }
 
         [ForeignKey(nameof(CommitteeId))]
-        public EvaluationCommittee EvaluationCommittee { get; set; }
+        public Committee Committee { get; set; }
+
+        [Required]
+        [Display(Name = "Lecturer Name")]
+        public int LecturerId { get; set; }
+
+        [ForeignKey(nameof(LecturerId))]
+        public Lecturer Lecturer { get; set; }
     }
 }

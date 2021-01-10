@@ -1,0 +1,44 @@
+﻿@model Project_MIS.Models.EvaluationCommittee
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+
+<br />
+<br />
+
+<div class="card">
+    <div class="card-body bg-white">
+
+        <div class="col text-danger">
+            <h1>Are you sure to delete this committee member?</h1><hr />
+        </div>
+        <br />
+        <div class="form-group">
+            <label asp-for="CommitteeId" class="control-label"></label>
+            <select disabled="disabled" asp-for="CommitteeId" class="form-control" asp-items="ViewBag.CommitteeId"></select>
+                         
+        </div>
+
+        <div class="form-group">
+            <label asp-for="LecturerId" class="control-label"></label>
+            <select disabled="disabled" asp-for="LecturerId" class="form-control" asp-items="ViewBag.LecturerId"></select>
+        </div>
+        <div class="form-group">
+            <label asp-for="LecturerTask" class="control-label"></label>
+            <select disabled="disabled" asp-for="LecturerTask" asp-items="Html.GetEnumSelectList<LecturerTask>()" class="form-control"></select>
+        </div>
+        <form asp-action="Delete">
+            <input type="hidden" asp-for="Id" />
+            <input type="submit" value="Delete" class="btn btn-danger" /> |
+
+            <a asp-action="Index"><span class="fa fa-arrow-alt-circle-left"> &nbsp;</span> Back to List</a>
+             
+        </form>
+
+
+
+    </div>
+</div>
+

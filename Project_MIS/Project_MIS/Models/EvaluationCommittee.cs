@@ -11,8 +11,10 @@ namespace Project_MIS.Models
     {
         [Required]
         [Display(Name = "Committee Name")]
-        [StringLength(100)]
-        public string Name { get; set; }
+        public int CommitteeId { get; set; }
+
+        [ForeignKey(nameof(CommitteeId))]
+        public Committee Committee { get; set; }
 
         [Required]
         [Display(Name = "Lecturer Name")]

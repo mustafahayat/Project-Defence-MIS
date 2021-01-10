@@ -1,0 +1,60 @@
+﻿@model Project_MIS.Models.ProjectResult
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<br />
+<br />
+
+<div class="card">
+    <div class="card-body bg-white">
+
+        <div>
+            <h4>Details of the @Model.Lecturer.Name comment</h4>
+            <hr />
+            <dl class="row">
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.DefenceDateTime)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.DefenceDateTime)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Comment)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Comment)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Project)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Project.Description)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.ProjectState)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.ProjectState)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Committee)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Committee.Name)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Lecturer)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Lecturer.Email)
+                </dd>
+            </dl>
+        </div>
+        <div>
+            <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+            <a asp-action="Index">Back to List</a>
+        </div>
+    </div>
+</div>

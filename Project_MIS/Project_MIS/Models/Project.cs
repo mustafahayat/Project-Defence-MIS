@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Project_MIS.Models
 {
-    public class ProjectGroup : Base
+    public class Project : Base
     {
         [Required]
         [StringLength(120)] 
@@ -15,13 +15,7 @@ namespace Project_MIS.Models
 
         [Required]
         public string Description { get; set; }
-        [Required]
-        [Display(Name = "Student Name")]
-        public int StudentId { get; set; }
-
-        [ForeignKey(nameof(StudentId))]
-        public Student Student { get; set; }
-
+     
         [Required]
         [Display(Name = "LeaderLecturer Name")]
         public int LecturerId { get; set; }

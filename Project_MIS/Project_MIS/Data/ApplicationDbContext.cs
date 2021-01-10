@@ -19,11 +19,12 @@ namespace Project_MIS.Data
         public virtual DbSet<Student> Students { get; set; }
         public virtual DbSet<Lecturer> Lecturers { get; set; }
         public virtual DbSet<Department> Departments { get; set; }
-        public virtual DbSet<ProjectGroup> ProjectGroups { get; set; }
+        public virtual DbSet<Project> Projects { get; set; }
         public virtual DbSet<Faculty> Faculties { get; set; }
         public virtual DbSet<EvaluationCommittee> EvaluationCommittees { get; set; }
-        public virtual DbSet<DefenceDay> DefenceDays { get; set; }
+        public virtual DbSet<ProjectResult> ProjectResults { get; set; }
         public virtual DbSet<University> Universities { get; set; }
+        public virtual DbSet<Committee> Committees { get; set; }
          
 
 

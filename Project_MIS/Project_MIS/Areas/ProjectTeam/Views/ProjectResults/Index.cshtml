@@ -1,0 +1,110 @@
+﻿@model IEnumerable<Project_MIS.Models.ProjectResult>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<br />
+<br />
+<div class="card bg-white">
+    <div class="card-body bg-white">
+        <div class="row align-baseline">
+            <div class="col text-info">
+                <h1>List of Projects after defence</h1><hr/>
+            </div>
+            <div class="col text-right">
+                <a asp-action="Edit" class="btn btn-success"> <span class="fa fa-edit"></span>  &nbsp; Edit your comment</a>
+            </div>
+        </div>
+
+
+        <div>
+            @if (Model.Any())
+            {
+
+		@* past the table Data *@
+
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Project.Name)
+                        </th>
+
+                        <th>
+                            @Html.DisplayNameFor(model => model.DefenceDateTime)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model=>model.Comment)
+                        </th>
+                        
+                        <th>
+                            @Html.DisplayNameFor(model => model.ProjectState)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Committee)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Lecturer)
+                        </th>
+                        <th></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    @foreach (var item in Model) {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Project.Name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.DefenceDateTime)
+                            </td>
+                            <td>
+                                This project is very <a asp-action="Details" asp-route-id="@item.Id">..more</a>
+                            </td>
+                            
+                            <td>
+                                @{
+                                    if (item.ProjectState == ProjectState.Completed)
+                                    {
+                                         <span class="text-success">@item.ProjectState</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="text-danger">@item.ProjectState</span>
+
+                                    }
+                                }
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Committee.Name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Lecturer.Email)
+                            </td>
+                            
+                                            <td class="float-right">
+                    <div class="btn-group">
+                        <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-success "><i class="fa fa-edit "></i></a>
+                        <a asp-action="Details" asp-route-id="@item.Id" class="btn-info btn"><i class="fa fa-list-alt"></i></a>
+                        <a asp-action="Delete" asp-route-id="@item.Id"  class="btn-danger btn"><i class="fa fa-trash"></i></a>
+
+                    </div>
+                </td>
+
+                        </tr>
+                    }
+                    </tbody>
+                </table>
+
+            }
+            else
+            {
+                <p>Oops, No records to display!</p>
+            }
+
+        </div>
+    </div>
+</div>
+
+
